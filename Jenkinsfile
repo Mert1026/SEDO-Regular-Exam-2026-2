@@ -14,25 +14,25 @@ pipeline {
 
         stage('Setup .NET') {
             steps {
-                sh 'dotnet --version'
+                bat 'dotnet --version'
             }
         }
 
         stage('Restore Dependencies') {
             steps {
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'dotnet build --no-restore --configuration Release'
+                bat 'dotnet build --no-restore --configuration Release'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'dotnet test --no-build --configuration Release --verbosity normal'
+                bat 'dotnet test --no-build --configuration Release --verbosity normal'
             }
         }
     }
